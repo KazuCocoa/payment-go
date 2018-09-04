@@ -4,7 +4,7 @@ import (
 	"context"
 	"os"
 
-	gpay "payment/payment-service/proto"
+	gpay "payment-go/payment-service/proto"
 
 	payjp "github.com/payjp/payjp-go/v1" // go get github.com/payjp/payjp-go/v1
 )
