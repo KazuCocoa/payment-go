@@ -13,6 +13,10 @@ You need set `$GOPATH`. If you use asdf, you probably should specify the path li
 
 Run mysql as `brew`
 
+## Dep for version management
+
+https://golang.github.io/dep/docs/installation.html
+
 ## MySQL
 
 ```
