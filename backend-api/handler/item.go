@@ -2,8 +2,9 @@ package handler
 
 import (
 	"net/http"
-	"payment-go/backend-api/db"
 	"strconv"
+
+	"../db"
 )
 
 func GetLists(c Context) {
@@ -15,7 +16,7 @@ func GetLists(c Context) {
 	c.JSON(http.StatusOK, res)
 }
 
-func getItem(c Context) {
+func GetItem(c Context) {
 	identifier, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, nil)

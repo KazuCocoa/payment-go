@@ -2,7 +2,8 @@ package main
 
 import (
 	"os"
-	"payment-go/backend-api/infrastructure"
+
+	"./infrastructure"
 )
 
 func main() {

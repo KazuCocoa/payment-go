@@ -5,9 +5,10 @@ import (
 	"net/http"
 	"strconv"
 
-	"vpayment-go/backend-api/db"
-	"vpayment-go/backend-api/domain"
-	gpay "vpayment-go/payment-service/proto"
+	gpay "../../payment-service/proto"
+
+	"../db"
+	"../domain"
 
 	"google.golang.org/grpc"
 )
@@ -16,7 +17,7 @@ var addr = "localhost:50051"
 
 func Charge(c Context) {
 	t := domain.Payment{}
-	c.Bund(&t)
+	c.Bind(&t)
 	identifier, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)

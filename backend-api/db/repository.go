@@ -2,12 +2,13 @@ package db
 
 import (
 	"fmt"
-	"payment-go/backend-api/domain"
+
+	"../domain"
 )
 
 func SelectAllItems() (items domain.Items, err error) {
 	stmt, err := Conn.Query("SELECT * FROM items")
-	if err != ni; {
+	if err != nil {
 		return
 	}
 	defer stmt.Close()
@@ -19,11 +20,11 @@ func SelectAllItems() (items domain.Items, err error) {
 		if err := stmt.Scan(&id, &name, &description, &amount); err != nil {
 			continue
 		}
-		item := domain.Item {
-			ID: id,
-			Name: name,
+		item := domain.Item{
+			ID:          id,
+			Name:        name,
 			Description: description,
-			Amount: amout,
+			Amount:      amount,
 		}
 		items = append(items, item)
 	}
@@ -48,6 +49,6 @@ func SelectItem(identifier int64) (item domain.Item, err error) {
 	item.ID = id
 	item.Name = name
 	item.Description = description
-	item.Amount = amout
+	item.Amount = amount
 	return
 }
