@@ -10,9 +10,9 @@ import (
 var Conn *sql.DB
 
 func init() {
-	user := os.Getenv("MYSQL_USER")
-	pass := os.Getenv("MYSQL_PASSWORD")
-	name := os.Getenv("MYSQL_DATABASE")
+	user := os.Getenv("MYSQL_USER") // mysql
+	pass := os.Getenv("MYSQL_PASSWORD") // mysql
+	name := os.Getenv("MYSQL_DATABASE") // itemsDB
 
 	dbconf := user + ":" + pass "@/" + name
 	conn, err := sql.Open("mysql", dbconf)

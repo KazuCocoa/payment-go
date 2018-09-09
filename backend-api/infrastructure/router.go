@@ -2,11 +2,13 @@ package infrastructure
 
 import (
 	"os"
+	"payment-go/backend-api/handler"
 
 	"github.com/gin-contrib/cors"
 	gin "github.com/gin-gonic/gin"
 )
 
+// Router - router api server
 var Router *gin.Engine
 
 func init() {
@@ -18,9 +20,11 @@ func init() {
 		AllowHeaders: []string{"Origin", "Content-Type"},
 	}))
 
+	// router.POST("/api/v1/items", func(c *gin.Context) {})
 	router.GET("/api/v1/items", func(c *gin.Context) { handler.GetLists(c) })
 	router.GET("/api/v1/items/:id", func(c *gin.Context) { handler.GetItem(c) })
-	router.POST("/api/vi/charge/items/:id", func(c *gin.Context) { handler.Carge(c) })
+	router.POST("/api/v1/charge/items/:id", func(c *gin.Context) { handler.Charge(c) })
+	// router.DELETE("/api/v1/items/:id", func(c *gin.Context) {})
 
 	Router = router
 }
